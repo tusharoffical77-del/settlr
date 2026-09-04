@@ -8,7 +8,7 @@ class Expense(db.Model):
     paid_by = db.Column(db.Integer, db.ForeignKey("users.id"))
     amount = db.Column(db.Numeric(10, 2), nullable=False)
     description = db.Column(db.String(255))
-    split_type = db.Column(db.Enum("equal", "percentage", "exact"), default="equal")
+    split_type = db.Column(db.Enum("equal", "percentage", "exact", name="split_type_enum"), default="equal")
     created_at = db.Column(db.TIMESTAMP, server_default=db.func.now())
 
 class ExpenseSplit(db.Model):
