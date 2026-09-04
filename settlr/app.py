@@ -29,4 +29,8 @@ def create_app():
         from routes.balance import balance_bp
         app.register_blueprint(balance_bp, url_prefix="/groups")
 
+    @app.route("/")
+    def home():
+        return {"message": "Settlr API is running", "status": "ok"}
+
     return app
